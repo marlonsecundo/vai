@@ -8,4 +8,4 @@ const nextConfig = {
   output: debug ? "standalone" : "export",
 };
 
-module.exports = { ...withNextIntl(nextConfig), ...nextConfig };
+module.exports = nextConfig;
