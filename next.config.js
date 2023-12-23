@@ -1,11 +1,17 @@
-const debug = process.env.NODE_ENV !== "production";
-const withNextIntl = require("next-intl/plugin")();
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  basePath: "/vai",
-  // assetPrefix: "/vai",
-  output: debug ? "standalone" : "export",
+let assetPrefix = "";
+let basePath = "/";
+
+if (isGithubActions) {
+  // trim off `<owner>/`
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, "");
+
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+}
+
+module.exports = {
+  assetPrefix: assetPrefix,
+  basePath: basePath,
 };
-
-module.exports = nextConfig;
