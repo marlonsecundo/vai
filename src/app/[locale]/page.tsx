@@ -34,6 +34,21 @@ export default function Home() {
               className="dark:invert"
               width={100}
               height={24}
+            />
+            <Image
+              src="/vai/imgs/background.png"
+              alt="Vercel Logo"
+              className="dark:invert"
+              width={100}
+              height={24}
+              priority
+            />
+            <Image
+              src="/vai/imgs/vercel.svg"
+              alt="Vercel Logo"
+              className="dark:invert"
+              width={100}
+              height={24}
               priority
             />
           </a>
